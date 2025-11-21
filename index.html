@@ -17,7 +17,9 @@
             --primary-dark: #1b5e20;
             --primary-light: #4caf50;
             --secondary: #1565c0;
-            --accent: #ff9800;
+            --accent: #8d6e63;
+            --earth: #795548;
+            --blue: #1976d2;
             --light: #f5f5f5;
             --dark: #333;
             --gray: #757575;
@@ -59,7 +61,7 @@
         
         .logo h1 {
             font-size: 1.8rem;
-            color: var(--primary);
+            color: var(--earth);
             margin-left: 10px;
         }
         
@@ -84,7 +86,7 @@
         }
         
         .cta-button {
-            background-color: var(--primary);
+            background-color: var(--earth);
             color: white;
             padding: 10px 20px;
             border-radius: 4px;
@@ -94,7 +96,7 @@
         }
         
         .cta-button:hover {
-            background-color: var(--primary-dark);
+            background-color: var(--accent);
         }
         
         /* Page Sections */
@@ -114,7 +116,7 @@
         
         .section-title h2 {
             font-size: 2rem;
-            color: var(--primary);
+            color: var(--earth);
             margin-bottom: 15px;
         }
         
@@ -152,6 +154,7 @@
             border-radius: 8px;
             text-align: center;
             box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            border-top: 4px solid var(--earth);
         }
         
         /* Services Grid */
@@ -166,6 +169,7 @@
             border-radius: 8px;
             overflow: hidden;
             box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            border-top: 4px solid var(--blue);
         }
         
         .service-content {
@@ -199,6 +203,7 @@
             overflow: hidden;
             box-shadow: 0 5px 15px rgba(0,0,0,0.1);
             margin-bottom: 30px;
+            border-left: 4px solid var(--accent);
         }
         
         .event-image {
@@ -233,7 +238,7 @@
         }
         
         .submit-btn {
-            background-color: var(--primary);
+            background-color: var(--earth);
             color: white;
             border: none;
             padding: 12px 30px;
@@ -243,9 +248,52 @@
             font-weight: 600;
         }
         
+        /* Video Container */
+        .video-container {
+            margin: 30px 0;
+            text-align: center;
+        }
+        
+        .video-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+        
+        .video-wrapper {
+            position: relative;
+            padding-bottom: 56.25%;
+            height: 0;
+            overflow: hidden;
+        }
+        
+        .video-wrapper iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border-radius: 8px;
+        }
+        
+        /* Partners Section */
+        .partner-card {
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            margin-bottom: 30px;
+        }
+        
+        .partner-content {
+            padding: 30px;
+            text-align: center;
+        }
+        
         /* Footer */
         footer {
-            background-color: var(--primary-dark);
+            background-color: var(--earth);
             color: white;
             padding: 60px 0 30px;
             text-align: center;
@@ -285,7 +333,10 @@
                     <li><a href="#" onclick="showPage('home')">Home</a></li>
                     <li><a href="#" onclick="showPage('services')">Services</a></li>
                     <li><a href="#" onclick="showPage('biochar')">Biochar</a></li>
+                    <li><a href="#" onclick="showPage('coffee')">Coffee Innovation</a></li>
                     <li><a href="#" onclick="showPage('events')">Events</a></li>
+                    <li><a href="#" onclick="showPage('knowledge')">Knowledge Hub</a></li>
+                    <li><a href="#" onclick="showPage('partners')">Partners</a></li>
                     <li><a href="#" onclick="showPage('contact')">Contact</a></li>
                 </ul>
             </nav>
@@ -370,6 +421,19 @@
                         <p>Promoting agroecological practices and integrated pest management.</p>
                     </div>
                 </div>
+
+                <div class="service-card">
+                    <div class="service-content">
+                        <h3>Fertilizer Safety & Soil Health</h3>
+                        <p>Educating farmers about heavy metal risks in synthetic fertilizers and providing safe alternatives.</p>
+                        <ul style="margin-top: 15px; padding-left: 20px;">
+                            <li>Heavy metal risks in NPK, CAN, DAP fertilizers</li>
+                            <li>Cadmium accumulation prevention</li>
+                            <li>Biochar and compost solutions</li>
+                            <li>Soil testing and remediation</li>
+                        </ul>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
@@ -406,6 +470,56 @@
                     </div>
                 </div>
             </div>
+
+            <div class="video-container">
+                <h3>Learn More About Biochar</h3>
+                <div class="video-grid">
+                    <div class="video-wrapper">
+                        <iframe src="https://www.youtube.com/embed/LmOEcONM9rY" frameborder="0" allowfullscreen></iframe>
+                    </div>
+                    <div class="video-wrapper">
+                        <iframe src="https://www.youtube.com/embed/Dmpnrtey3YU" frameborder="0" allowfullscreen></iframe>
+                    </div>
+                    <div class="video-wrapper">
+                        <iframe src="https://www.youtube.com/embed/RJHqxdaBe78" frameborder="0" allowfullscreen></iframe>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Coffee Innovation Page -->
+    <section id="coffee" class="page">
+        <div class="container">
+            <div class="section-title">
+                <h2>Coffee Innovation Platforms</h2>
+                <p>Transforming coffee farming through innovation and sustainability</p>
+            </div>
+            
+            <div class="biochar-content">
+                <div>
+                    <h3>Revolutionizing Coffee Production</h3>
+                    <p>Our coffee innovation platforms bring together farmers, researchers, and industry partners to develop sustainable coffee farming practices that increase yields while protecting the environment.</p>
+                    
+                    <div class="features" style="margin-top: 30px;">
+                        <div class="feature-card">
+                            <h4>Climate Resilience</h4>
+                            <p>Developing coffee varieties resistant to climate change impacts</p>
+                        </div>
+                        <div class="feature-card">
+                            <h4>Soil Health</h4>
+                            <p>Implementing regenerative practices for coffee ecosystems</p>
+                        </div>
+                        <div class="feature-card">
+                            <h4>Market Access</h4>
+                            <p>Connecting farmers with premium markets for sustainable coffee</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="biochar-image">
+                    <img src="IMG-20251031-WA0017.jpg" alt="Coffee Innovation">
+                </div>
+            </div>
         </div>
     </section>
 
@@ -419,6 +533,18 @@
             
             <div class="event-card">
                 <div class="event-image">
+                    <img src="WhatsApp Image 2025-11-19 at 09.15.13_a3f6e970.jpg" alt="IKI Small Grants">
+                </div>
+                <div class="event-content">
+                    <h3>IKI Small Grants - 7th Call for Proposals</h3>
+                    <p><strong>Registration open until:</strong> 15th January 2026</p>
+                    <p>Climate and biodiversity action funding of up to 200,000 euros for local organisations worldwide.</p>
+                    <button class="submit-btn" style="margin-top: 20px;">Learn More</button>
+                </div>
+            </div>
+
+            <div class="event-card">
+                <div class="event-image">
                     <img src="IMG-20251109-WA0000.jpg" alt="National Organic Week 2025">
                 </div>
                 <div class="event-content">
@@ -427,6 +553,76 @@
                     <p><strong>Venue:</strong> Hotel Africana, Kampala</p>
                     <p>Join Uganda's largest gathering of organic champions in Africa featuring exhibitions, dialogues, and youth engagements.</p>
                     <button class="submit-btn" style="margin-top: 20px;">Register Now</button>
+                </div>
+            </div>
+
+            <div class="event-card">
+                <div class="event-content">
+                    <h3>BLUGREEN 3 DAY HYBRID WORKSHOP COMING SOON!</h3>
+                    <p><strong>Location:</strong> Sigulu Island</p>
+                    <p><strong>Details:</strong> Join us for an intensive 3-day hybrid workshop focusing on sustainable agricultural practices and ecological interventions.</p>
+                    <div style="margin-top: 20px;">
+                        <h4>Location Map:</h4>
+                        <div style="background: #f0f0f0; padding: 20px; border-radius: 8px; text-align: center; margin-top: 15px;">
+                            <p>Map of Sigulu Island will be displayed here</p>
+                            <p style="font-size: 0.9rem; color: var(--gray);">[Interactive map to be integrated]</p>
+                        </div>
+                    </div>
+                    <button class="submit-btn" style="margin-top: 20px;">Get Notified</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Knowledge Hub Page -->
+    <section id="knowledge" class="page">
+        <div class="container">
+            <div class="section-title">
+                <h2>Knowledge Hub</h2>
+                <p>Educational resources for sustainable living</p>
+            </div>
+            
+            <div class="event-card">
+                <div class="event-image">
+                    <img src="WhatsApp Image 2025-11-12 at 04.49.43_67f33265.jpg" alt="Egg Freshness Test">
+                </div>
+                <div class="event-content">
+                    <h3>How to Test Egg Freshness Using Water</h3>
+                    <p>A simple water test to determine egg freshness and safety:</p>
+                    <ul style="margin: 15px 0; padding-left: 20px;">
+                        <li><strong>Fresh and Safe to eat:</strong> Egg sinks to bottom</li>
+                        <li><strong>Too old to eat but not fresh:</strong> Egg stands on point</li>
+                        <li><strong>Not safe to be eaten:</strong> Egg floats to top</li>
+                    </ul>
+                    <p>This simple method helps reduce food waste and ensures food safety.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Partners Page -->
+    <section id="partners" class="page">
+        <div class="container">
+            <div class="section-title">
+                <h2>Our Partners</h2>
+                <p>Collaborating for sustainable agriculture</p>
+            </div>
+            
+            <div class="partner-card">
+                <div class="partner-content">
+                    <h3>Taltex Meathub</h3>
+                    <p><strong>Eat Healthy, Eat Rabbit</strong></p>
+                    <p>Craving something unique? Try our signature rabbit dishes!</p>
+                    
+                    <div style="margin: 20px 0;">
+                        <p><strong>Fresh Rabbit Meat:</strong> 25K Per KG</p>
+                        <p><strong>Pan-fried Rabbit Meat:</strong> 55K Only</p>
+                    </div>
+                    
+                    <p>🔥 High in Protein, Low in Fat</p>
+                    <p>🚚 Fast Delivery right to your door!</p>
+                    <p>📞 <strong>Order Now:</strong> 0708-875-738</p>
+                    <p>🐇 Taltex Meathub – Eat Healthy, Eat Rabbit!</p>
                 </div>
             </div>
         </div>
@@ -444,8 +640,11 @@
                 <div>
                     <h3>Get In Touch</h3>
                     <div style="margin-top: 30px;">
-                        <p><strong>Phone:</strong> +256 775 033333</p>
-                        <p><strong>Email:</strong> admin@nogamu.org</p>
+                        <p><strong>Phone Numbers:</strong></p>
+                        <p>+256 (200) 959657</p>
+                        <p>0785881940</p>
+                        <p>0758743755</p>
+                        <p style="margin-top: 20px;"><strong>Email:</strong> admin@nogamu.org</p>
                         <p><strong>Address:</strong> Kampala, Uganda</p>
                     </div>
                 </div>
