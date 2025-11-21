@@ -1,0 +1,488 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blugreen - Ecological & Agricultural Intervention</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        :root {
+            --primary: #2e7d32;
+            --primary-dark: #1b5e20;
+            --primary-light: #4caf50;
+            --secondary: #1565c0;
+            --accent: #ff9800;
+            --light: #f5f5f5;
+            --dark: #333;
+            --gray: #757575;
+        }
+        
+        body {
+            color: var(--dark);
+            line-height: 1.6;
+            background-color: #f9f9f9;
+        }
+        
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Header */
+        header {
+            background-color: white;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+        
+        .logo h1 {
+            font-size: 1.8rem;
+            color: var(--primary);
+            margin-left: 10px;
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+        
+        nav li {
+            margin-left: 30px;
+        }
+        
+        nav a {
+            text-decoration: none;
+            color: var(--dark);
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        
+        nav a:hover {
+            color: var(--primary);
+        }
+        
+        .cta-button {
+            background-color: var(--primary);
+            color: white;
+            padding: 10px 20px;
+            border-radius: 4px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: background-color 0.3s;
+        }
+        
+        .cta-button:hover {
+            background-color: var(--primary-dark);
+        }
+        
+        /* Page Sections */
+        .page {
+            display: none;
+            padding: 80px 0;
+        }
+        
+        .page.active {
+            display: block;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+        
+        .section-title h2 {
+            font-size: 2rem;
+            color: var(--primary);
+            margin-bottom: 15px;
+        }
+        
+        /* Home Page */
+        .hero {
+            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('IMG-20251031-WA0026.jpg');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            text-align: center;
+            padding: 100px 20px;
+        }
+        
+        .hero h2 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+        
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto 30px;
+        }
+        
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+        
+        .feature-card {
+            background: white;
+            padding: 30px;
+            border-radius: 8px;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        /* Services Grid */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .service-card {
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        }
+        
+        .service-content {
+            padding: 25px;
+        }
+        
+        /* Biochar Page */
+        .biochar-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: center;
+        }
+        
+        .biochar-image {
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+        
+        .biochar-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+        
+        /* Events Page */
+        .event-card {
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            margin-bottom: 30px;
+        }
+        
+        .event-image {
+            height: 300px;
+            overflow: hidden;
+        }
+        
+        .event-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .event-content {
+            padding: 30px;
+        }
+        
+        /* Contact Form */
+        .contact-form input,
+        .contact-form textarea {
+            width: 100%;
+            padding: 12px;
+            margin-bottom: 20px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 1rem;
+        }
+        
+        .contact-form textarea {
+            height: 150px;
+            resize: vertical;
+        }
+        
+        .submit-btn {
+            background-color: var(--primary);
+            color: white;
+            border: none;
+            padding: 12px 30px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 1rem;
+            font-weight: 600;
+        }
+        
+        /* Footer */
+        footer {
+            background-color: var(--primary-dark);
+            color: white;
+            padding: 60px 0 30px;
+            text-align: center;
+        }
+        
+        @media (max-width: 768px) {
+            .header-container {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            nav ul {
+                margin-top: 20px;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            
+            nav li {
+                margin: 0 10px 10px;
+            }
+            
+            .biochar-content {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container header-container">
+            <div class="logo">
+                <h1>Blugreen</h1>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="#" onclick="showPage('home')">Home</a></li>
+                    <li><a href="#" onclick="showPage('services')">Services</a></li>
+                    <li><a href="#" onclick="showPage('biochar')">Biochar</a></li>
+                    <li><a href="#" onclick="showPage('events')">Events</a></li>
+                    <li><a href="#" onclick="showPage('contact')">Contact</a></li>
+                </ul>
+            </nav>
+            <a href="#" onclick="showPage('contact')" class="cta-button">Get In Touch</a>
+        </div>
+    </header>
+
+    <!-- Home Page -->
+    <section id="home" class="page active">
+        <div class="hero">
+            <div class="container">
+                <h2>Sustainable Ecological & Agricultural Solutions</h2>
+                <p>Blugreen is dedicated to creating innovative, environmentally responsible interventions that promote biodiversity and sustainable agriculture.</p>
+                <a href="#" onclick="showPage('services')" class="cta-button">Our Services</a>
+            </div>
+        </div>
+        
+        <div class="container">
+            <div class="section-title">
+                <h2>Climate Smart Agriculture</h2>
+                <p>Building resilient agricultural systems for the future</p>
+            </div>
+            
+            <div class="biochar-content">
+                <div class="biochar-image">
+                    <img src="IMG-20251112-WA0001.jpg" alt="Climate Smart Agriculture">
+                </div>
+                <div>
+                    <h3>Three Pillars of Climate Smart Agriculture</h3>
+                    <div class="features">
+                        <div class="feature-card">
+                            <h4>Increased Productivity</h4>
+                            <p>Sustainable intensification of agricultural production</p>
+                        </div>
+                        <div class="feature-card">
+                            <h4>Enhanced Resilience</h4>
+                            <p>Adapting to climate change and building robust systems</p>
+                        </div>
+                        <div class="feature-card">
+                            <h4>Reduced Emissions</h4>
+                            <p>Lowering greenhouse gas emissions from agricultural activities</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Page -->
+    <section id="services" class="page">
+        <div class="container">
+            <div class="section-title">
+                <h2>Our Services</h2>
+                <p>Comprehensive ecological and agricultural solutions</p>
+            </div>
+            
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-content">
+                        <h3>Soil Regeneration</h3>
+                        <p>Implementing sustainable practices to restore soil health and improve fertility for productive agriculture.</p>
+                    </div>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-content">
+                        <h3>Water Management</h3>
+                        <p>Designing efficient irrigation systems and watershed management solutions.</p>
+                    </div>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-content">
+                        <h3>Biochar Production</h3>
+                        <p>Turning waste biomass into long-term carbon storage and soil amendment.</p>
+                    </div>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-content">
+                        <h3>Sustainable Farming</h3>
+                        <p>Promoting agroecological practices and integrated pest management.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Biochar Page -->
+    <section id="biochar" class="page">
+        <div class="container">
+            <div class="section-title">
+                <h2>Biochar: The Carbon Sponge</h2>
+                <p>That Feeds Life in Soil</p>
+            </div>
+            
+            <div class="biochar-content">
+                <div class="biochar-image">
+                    <img src="IMG-20251112-WA0000.jpg" alt="Biochar Process">
+                </div>
+                <div>
+                    <h3>Turning waste biomass into long-term carbon and microbial habitat</h3>
+                    <p>Biochar is produced through pyrolysis of biomass at 350-700°C with little oxygen, creating a stable carbon structure that can remain in soil for hundreds of years.</p>
+                    
+                    <div class="features" style="margin-top: 30px;">
+                        <div class="feature-card">
+                            <h4>Carbon Sequestration</h4>
+                            <p>Locks CO₂ into soil for long-term storage</p>
+                        </div>
+                        <div class="feature-card">
+                            <h4>Soil Improvement</h4>
+                            <p>Enhances water retention and nutrient availability</p>
+                        </div>
+                        <div class="feature-card">
+                            <h4>Microbial Habitat</h4>
+                            <p>Provides home for beneficial soil microorganisms</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Events Page -->
+    <section id="events" class="page">
+        <div class="container">
+            <div class="section-title">
+                <h2>Upcoming Events</h2>
+                <p>Join us in promoting sustainable agriculture</p>
+            </div>
+            
+            <div class="event-card">
+                <div class="event-image">
+                    <img src="IMG-20251109-WA0000.jpg" alt="National Organic Week 2025">
+                </div>
+                <div class="event-content">
+                    <h3>National Organic Week 2025</h3>
+                    <p><strong>Date:</strong> 5th–8th November 2025</p>
+                    <p><strong>Venue:</strong> Hotel Africana, Kampala</p>
+                    <p>Join Uganda's largest gathering of organic champions in Africa featuring exhibitions, dialogues, and youth engagements.</p>
+                    <button class="submit-btn" style="margin-top: 20px;">Register Now</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Page -->
+    <section id="contact" class="page">
+        <div class="container">
+            <div class="section-title">
+                <h2>Contact Us</h2>
+                <p>Get in touch to discuss your ecological and agricultural needs</p>
+            </div>
+            
+            <div class="biochar-content">
+                <div>
+                    <h3>Get In Touch</h3>
+                    <div style="margin-top: 30px;">
+                        <p><strong>Phone:</strong> +256 775 033333</p>
+                        <p><strong>Email:</strong> admin@nogamu.org</p>
+                        <p><strong>Address:</strong> Kampala, Uganda</p>
+                    </div>
+                </div>
+                
+                <div class="contact-form">
+                    <form>
+                        <input type="text" placeholder="Your Name" required>
+                        <input type="email" placeholder="Your Email" required>
+                        <input type="text" placeholder="Subject">
+                        <textarea placeholder="Your Message" required></textarea>
+                        <button type="submit" class="submit-btn">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2023 Blugreen Ecological & Agricultural Intervention. All rights reserved.</p>
+            <p style="margin-top: 20px;">Transforming agriculture through sustainable practices</p>
+        </div>
+    </footer>
+
+    <script>
+        function showPage(pageId) {
+            // Hide all pages
+            document.querySelectorAll('.page').forEach(page => {
+                page.classList.remove('active');
+            });
+            
+            // Show selected page
+            document.getElementById(pageId).classList.add('active');
+            
+            return false;
+        }
+    </script>
+</body>
+</html>
